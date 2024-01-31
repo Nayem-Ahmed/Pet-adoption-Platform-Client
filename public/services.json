@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "heading": "Training",
+      "img": "https://i.ibb.co/gZQScHs/service2.jpg",
+      "description": "Luna is a sweet and playful 2-year-old Labrador Retriever. She loves outdoor activities and is great with kids. Luna is looking for a loving family to call her own."
+    },
+    {
+      "id": 2,
+      "heading": "Activities",
+      "img": "https://i.ibb.co/zSnpM72/service3.jpg",
+      "description": "Say hello to our adorable kitten trio - Whiskers, Mittens, and Paws. These playful siblings are 3 months old and are looking for a cozy home where they can explore and snuggle."
+    },
+    {
+      "id": 3,
+      "heading": "pet Hotel",
+      "img": "https://i.ibb.co/VjDZ73D/service4.jpg",
+      "description": "Max is a 4-year-old mixed breed with a heart full of love. He's a great companion and enjoys long walks. Max is looking for a forever home where he can be the center of attention."
+    },
+    {
+      "id": 4,
+      "heading": "Grooming Services",
+      "img": "https://i.ibb.co/wMNFwmx/service5.jpg",
+      "description": "Sophie is a graceful 5-year-old Siamese cat. She loves lounging in sunny spots and is quite the conversationalist. Sophie is seeking a calm and loving home to call her kingdom."
+    },
+    {
+      "id": 5,
+      "heading": "Vaccines",
+      "img": "https://i.ibb.co/zSnpM72/service3.jpg",
+      "description": "Buddy, a 6-month-old Beagle mix, is full of energy and joy. He loves fetching balls and is great with other pets. Buddy is ready to bring endless smiles to a loving family."
+    },
+    {
+      "id": 6,
+      "heading": "Vetirenary",
+      "img": "https://i.ibb.co/VjDZ73D/service4.jpg",
+      "description": "Fluffy is a gentle and affectionate bunny looking for a caring home. She enjoys hopping around and snacking on fresh veggies. Fluffy is perfect for someone who appreciates quiet companionship."
+    },
+    {
+      "id": 7,
+      "heading": "Charlie the Majestic Persian",
+      "img": "https://i.ibb.co/gZQScHs/service2.jpg",
+      "description": "Meet Charlie, a majestic 3-year-old Persian cat with a luxurious coat. Charlie enjoys lounging and being pampered. He's looking for a home where he can be treated like royalty."
+    }
+  ]
+  
