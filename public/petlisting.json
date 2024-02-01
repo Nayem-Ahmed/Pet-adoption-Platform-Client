@@ -1,0 +1,67 @@
+[
+    {
+      "id": 1,
+      "image": "https://i.ibb.co/HXMY3zJ/blog1.webp",
+      "name": "Whiskers",
+      "age": 2,
+      "location": "Suburbville",
+      "category": "Cats"
+    },
+    {
+      "id": 2,
+      "image": "https://i.ibb.co/6bXN712/blog2.webp",
+      "name": "Shadow",
+      "age": 3,
+      "location": "Downtown City",
+      "category": "Dogs"
+    },
+    {
+      "id": 3,
+      "image": "https://i.ibb.co/gZQScHs/service2.jpg",
+      "name": "Coco",
+      "age": 1,
+      "location": "Green Meadows",
+      "category": "Cats"
+    },
+    {
+      "id": 4,
+      "image": "https://i.ibb.co/zSnpM72/service3.jpg",
+      "name": "Oscar",
+      "age": 4,
+      "location": "Suburbville",
+      "category": "Dogs"
+    },
+    {
+      "id": 5,
+      "image": "https://i.ibb.co/cgdyMw9/03.jpg",
+      "name": "Mochi",
+      "age": 2,
+      "location": "Downtown City",
+      "category": "Cats"
+    },
+    {
+      "id": 6,
+      "image": "https://i.ibb.co/800v57q/06.jpg",
+      "name": "Leo",
+      "age": 1,
+      "location": "Green Meadows",
+      "category": "Dogs"
+    },
+    {
+      "id": 7,
+      "image": "https://i.ibb.co/8dWv8Pb/12.jpg",
+      "name": "Daisy",
+      "age": 3,
+      "location": "Suburbville",
+      "category": "Cats"
+    },
+    {
+      "id": 8,
+      "image": "https://i.ibb.co/gZQScHs/service2.jpg",
+      "name": "Rusty",
+      "age": 2,
+      "location": "Downtown City",
+      "category": "Dogs"
+    }
+  ]
+  

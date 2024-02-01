@@ -3,8 +3,9 @@ import Root from "../LayOut/Root";
 import ErrorPage from "../Pages/ErrorPage";
 import Home from "../Home/Home";
 import Services from "../Pages/Services";
-import About from "../Pages/About";
 import Contact from "../Pages/Contact";
+import Listing from "../Pages/Listing";
+import Donation from "../Pages/Donation";
 
 const router= createBrowserRouter([
     {
@@ -23,13 +24,18 @@ const router= createBrowserRouter([
                 
             },
             {
-                path:"/about",
-                element:<About></About>,
+                path:"/listing",
+                element: <Listing></Listing>,
                 
             },
             {
                 path:"/contact",
                 element:<Contact></Contact>,
+                
+            },
+            {
+                path:"/donation",
+                element: <Donation></Donation>,
                 
             }
         ]

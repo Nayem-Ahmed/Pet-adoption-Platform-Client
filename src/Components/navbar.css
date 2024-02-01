@@ -2,10 +2,11 @@
     margin-right: 5px;
     margin-left: 5px;
     font-size: 16px;
+  
    
 }
  
 .nav.active{
-    color: yellow;
+    color: red;
     text-decoration: underline;
 }
