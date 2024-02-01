@@ -6,6 +6,8 @@ import Services from "../Pages/Services";
 import Contact from "../Pages/Contact";
 import Listing from "../Pages/Listing";
 import Donation from "../Pages/Donation";
+import Signin from "../Components/Signin";
+import SignUp from "../Components/SignUp";
 
 const router= createBrowserRouter([
     {
@@ -36,6 +38,16 @@ const router= createBrowserRouter([
             {
                 path:"/donation",
                 element: <Donation></Donation>,
+                
+            },
+            {
+                path:"/signin",
+                element:  <Signin></Signin>,
+                
+            },
+            {
+                path:"/signup",
+                element: <SignUp></SignUp>,
                 
             }
         ]

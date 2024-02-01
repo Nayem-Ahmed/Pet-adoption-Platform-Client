@@ -35,18 +35,21 @@
 
 // export default Listing;
 
-
+ 
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../Components/Loader';
 
 const Listing = () => {
   const [pets, setPets] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filteredPets, setFilteredPets] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [pageNumber, setPageNumber] = useState(1);
-  const itemsPerPage = 5;  
+  const itemsPerPage = 5;
+
   useEffect(() => {
     fetch('./petlisting.json')
       .then((response) => response.json())
@@ -54,6 +57,7 @@ const Listing = () => {
         const sortedPets = data.sort((a, b) => new Date(b.date) - new Date(a.date));
         setPets(sortedPets);
         setFilteredPets(sortedPets);
+        setLoading(false);
       })
       .catch((error) => console.error('Error fetching pet listings:', error));
   }, []);
@@ -85,6 +89,8 @@ const Listing = () => {
   const visiblePets = filteredPets.slice(0, pageNumber * itemsPerPage);
   const hasMorePets = visiblePets.length < filteredPets.length;
 
+  if (loading) return <Loader/>;
+
   return (
     <div className='grid md:grid-cols-3 gap-6 my-8 p-4'>
       <div>
@@ -102,21 +108,25 @@ const Listing = () => {
           <option value="Category2">Category 2</option>
         </select>
       </div>
-      {visiblePets.map((listing) => (
-        <div key={listing.id} className="card card-compact bg-base-100 shadow-xl">
-          <figure><img className='w-full h-72' src={listing.image} alt="pet" /></figure>
-          <div className="card-body">
-            <h2 className="card-title">Pet Name : {listing.name}</h2>
-            <h2 className="card-title">Pet age : 0{listing.age}</h2>
-            <h3 className='font-semibold'>Location : {listing.location}</h3>
-            <div className="card-actions justify-end">
-              <Link to={`/adopt/${listing.id}`}>
-                <button className="btn text-white bg-[#30336b]">Adopt</button>
-              </Link>
+      {visiblePets.length > 0 ? (
+        visiblePets.map((listing) => (
+          <div key={listing.id} className="card card-compact bg-base-100 shadow-xl">
+            <figure><img className='w-full h-72' src={listing.image} alt="pet" /></figure>
+            <div className="card-body">
+              <h2 className="card-title">Pet Name : {listing.name}</h2>
+              <h2 className="card-title">Pet age : 0{listing.age}</h2>
+              <h3 className='font-semibold'>Location : {listing.location}</h3>
+              <div className="card-actions justify-end">
+                <Link to={`/adopt/${listing.id}`}>
+                  <button className="btn text-white bg-[#30336b]">Adopt</button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        <p className="text-center text-red-500">No results found.</p>
+      )}
       {hasMorePets && (
         <button onClick={loadMorePets} className="btn bg-blue-500 text-white mt-4">
           Load More
