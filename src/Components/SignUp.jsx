@@ -1,19 +1,51 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
 import { IoMdAttach, IoMdLock, IoMdMail, IoMdPerson } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProviders';
+import { imgUpload } from '../Hooks/imgbb';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
+    const {createUser,updateUserProfile} = useContext(AuthContext)
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const onSubmit = data => {console.log(data)};
+    const onSubmit = async (data) => {
+        try {
+            // Your form submission logic goes here
+            // console.log(data);
+
+            // Create user
+            const { user } = await createUser(data.email, data.password);
+            console.log(user);
+
+            // Assuming imgUpload is a function that handles image upload
+            const imageData = await imgUpload(data.photo[0]);
+            console.log(imageData);
+
+            // Update user profile with additional data (name, photo, etc.)
+            await updateUserProfile(data.name,imageData?.data?.url);
+
+            // save user data in Database
+        
+
+             // get token
+
+             toast('Sign Up successfull')
+            
+        } catch (error) {
+            toast.error(error.message);
+        }
+
+
+    };
     return (
         <div className="flex justify-center items-center my-16 ">
-            <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-md rounded px-8 pt-6 pb-6 mb-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-md rounded px-8 pt-6 pb-6 mb-4 md:w-3/6">
             <h2 className="text-2xl font-bold mb-4 text-center">Sign Up</h2>
                 {/* Name Input */}
                 <div className="mb-4">
