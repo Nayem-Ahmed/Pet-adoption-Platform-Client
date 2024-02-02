@@ -48,9 +48,11 @@ const SignUp = () => {
     const handleGoogleSignIn = async () => {
         try { 
             const result = await signInWithGoogle()
+            navigate(location?.state ? location.state : '/');
             // Additional logic or redirection after Google sign-in
         } catch (error) {
             toast.error(error.message);
+            
         }
     };
     return (

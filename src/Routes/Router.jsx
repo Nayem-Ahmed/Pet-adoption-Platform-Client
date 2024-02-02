@@ -8,6 +8,8 @@ import Listing from "../Pages/Listing";
 import Donation from "../Pages/Donation";
 import Signin from "../Components/Signin";
 import SignUp from "../Components/SignUp";
+import Privetroute from "../Routes/Privateroute";
+import ListingDetails from "../Pages/ListingDetails";
 
 const router= createBrowserRouter([
     {
@@ -31,18 +33,24 @@ const router= createBrowserRouter([
                 
             },
             {
+                path:"/listing/:id",
+                loader: ({ params }) => fetch(`http://localhost:5000/petlisting/${params.id}`),
+                element:  <ListingDetails></ListingDetails>,
+                
+            },
+            {
                 path:"/contact",
                 element:<Contact></Contact>,
                 
             },
             {
                 path:"/donation",
-                element: <Donation></Donation>,
+                element: <Privetroute><Donation></Donation></Privetroute>,
                 
             },
             {
                 path:"/signin",
-                element:  <Signin></Signin>,
+                element: <Signin></Signin>,
                 
             },
             {

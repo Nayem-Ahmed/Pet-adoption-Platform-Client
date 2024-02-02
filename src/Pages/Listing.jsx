@@ -40,6 +40,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from '../Components/Loader';
+import { getAllPetListing } from '../Hooks/petlisting';
 
 const Listing = () => {
   const [pets, setPets] = useState([]);
@@ -51,8 +52,7 @@ const Listing = () => {
   const itemsPerPage = 5;
 
   useEffect(() => {
-    fetch('./petlisting.json')
-      .then((response) => response.json())
+      getAllPetListing() 
       .then((data) => {
         const sortedPets = data.sort((a, b) => new Date(b.date) - new Date(a.date));
         setPets(sortedPets);
@@ -104,20 +104,20 @@ const Listing = () => {
         <select value={selectedCategory} onChange={handleCategoryChange} className="border p-2 mb-4">
           <option value="All">All Categories</option>
           {/* Add options for your categories dynamically based on your data */}
-          <option value="Category1">Category 1</option>
-          <option value="Category2">Category 2</option>
+          <option value="Cats">Cats</option>
+          <option value="Dogs">Dogs</option>
         </select>
       </div>
       {visiblePets.length > 0 ? (
         visiblePets.map((listing) => (
-          <div key={listing.id} className="card card-compact bg-base-100 shadow-xl">
+          <div key={listing._id} className="card card-compact bg-base-100 shadow-xl">
             <figure><img className='w-full h-72' src={listing.image} alt="pet" /></figure>
             <div className="card-body">
               <h2 className="card-title">Pet Name : {listing.name}</h2>
               <h2 className="card-title">Pet age : 0{listing.age}</h2>
               <h3 className='font-semibold'>Location : {listing.location}</h3>
               <div className="card-actions justify-end">
-                <Link to={`/adopt/${listing.id}`}>
+                <Link to={`/listing/${listing._id}`}>
                   <button className="btn text-white bg-[#30336b]">Adopt</button>
                 </Link>
               </div>
