@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
 import { IoMdAttach, IoMdLock, IoMdMail, IoMdPerson } from 'react-icons/io';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProviders';
 import { imgUpload } from '../Hooks/imgbb';
 import { toast } from 'react-toastify';
 
 const SignUp = () => {
-    const {createUser,updateUserProfile} = useContext(AuthContext)
+    const {createUser,updateUserProfile,signInWithGoogle} = useContext(AuthContext)
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -36,12 +37,21 @@ const SignUp = () => {
              // get token
 
              toast('Sign Up successfull')
+             navigate('/')
             
         } catch (error) {
             toast.error(error.message);
         }
 
 
+    };
+    const handleGoogleSignIn = async () => {
+        try { 
+            const result = await signInWithGoogle()
+            // Additional logic or redirection after Google sign-in
+        } catch (error) {
+            toast.error(error.message);
+        }
     };
     return (
         <div className="flex justify-center items-center my-16 ">
@@ -128,6 +138,7 @@ const SignUp = () => {
                     <button
                         type="button"
                         className="bg-blue-500 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
+                        onClick={handleGoogleSignIn}
                          
                     >
                         <FaGoogle className="mr-2" />

@@ -1,17 +1,46 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { IoMdMail,IoMdLock } from "react-icons/io";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProviders';
+import { toast } from 'react-toastify';
 
  
 const Signin = () => {
+    const{signIn,signInWithGoogle} = useContext(AuthContext)
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
-    const onSubmit = data => {console.log(data)};
+    const onSubmit = async (data) => {
+        try {
+            // Your form submission logic goes here
+            console.log(data);
+
+            //  signIn user
+            const { user } = await signIn(data.email, data.password);
+
+            // get token
+
+            toast('Signin successfull')
+            navigate(location?.state ? location.state : '/');
+
+        } catch (error) {
+            toast.error(error.message);
+        }
+    };
+
+    const handleGoogleSignIn = async () => {
+        try { 
+            const result = await signInWithGoogle()
+            // Additional logic or redirection after Google sign-in
+        } catch (error) {
+            toast.error(error.message);
+        }
+    };
     return (
         <div className="flex justify-center items-center p-5  ">
             <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md">
@@ -65,7 +94,7 @@ const Signin = () => {
                     <button
                         type="button"
                         className="bg-blue-500 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
-                        onClick={''}
+                        onClick={handleGoogleSignIn}
                     >
                         <FaGoogle className="mr-2" />
                         Continue with Google

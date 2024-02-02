@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProviders';
  
 const Navbar = () => {
-   const {user} = useContext(AuthContext)
+   const {user,logOut} = useContext(AuthContext)
    
     const link = <>
         <NavLink className='nav' to='/'>Home</NavLink>
@@ -54,7 +54,7 @@ const Navbar = () => {
 
                         {user?.email ? <li className='mb-3 font-semibold'>{user?.displayName}</li> : null}
                         {/* <Link className='mb-3' to='/dashboard'><li className='font-semibold'>Dashboard</li></Link> */}
-                        {user?.email ? <button onClick={''}
+                        {user?.email ? <button onClick={logOut}
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
                             type="submit"
                         >
