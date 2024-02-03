@@ -41,6 +41,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from '../Components/Loader';
 import { getAllPetListing } from '../Hooks/petlisting';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Listing = () => {
   const [pets, setPets] = useState([]);
@@ -58,6 +60,13 @@ const Listing = () => {
         setPets(sortedPets);
         setFilteredPets(sortedPets);
         setLoading(false);
+            // Initialize AOS with a slight delay
+            const initAOS = setTimeout(() => {
+              AOS.init();
+            }, 100);
+    
+            // Cleanup function to clear the timeout
+            return () => clearTimeout(initAOS);
       })
       .catch((error) => console.error('Error fetching pet listings:', error));
   }, []);
@@ -110,7 +119,7 @@ const Listing = () => {
       </div>
       {visiblePets.length > 0 ? (
         visiblePets.map((listing) => (
-          <div key={listing._id} className="card card-compact bg-base-100 shadow-xl">
+          <div data-aos="fade-right" key={listing._id} className="card card-compact bg-base-100 shadow-xl">
             <figure><img className='w-full h-72' src={listing.image} alt="pet" /></figure>
             <div className="card-body">
               <h2 className="card-title">Pet Name : {listing.name}</h2>
@@ -118,7 +127,7 @@ const Listing = () => {
               <h3 className='font-semibold'>Location : {listing.location}</h3>
               <div className="card-actions justify-end">
                 <Link to={`/listing/${listing._id}`}>
-                  <button className="btn text-white bg-[#30336b]">Adopt</button>
+                  <button className="btn text-white bg-[#30336b]">Details</button>
                 </Link>
               </div>
             </div>

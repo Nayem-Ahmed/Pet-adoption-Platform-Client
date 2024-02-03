@@ -34,7 +34,7 @@ const router= createBrowserRouter([
             },
             {
                 path:"/listing/:id",
-                loader: ({ params }) => fetch(`http://localhost:5000/petlisting/${params.id}`),
+                loader: ({ params }) => fetch(`https://pet-adoption-server-three.vercel.app/petlisting/${params.id}`),
                 element:  <ListingDetails></ListingDetails>,
                 
             },
