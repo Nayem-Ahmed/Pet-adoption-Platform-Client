@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProviders';
 import { imgUpload } from '../Hooks/imgbb';
 import { toast } from 'react-toastify';
+import saveUser from '../Hooks/auth';
 
 const SignUp = () => {
     const {createUser,updateUserProfile,signInWithGoogle} = useContext(AuthContext)
@@ -32,11 +33,13 @@ const SignUp = () => {
             await updateUserProfile(data.name,imageData?.data?.url);
 
             // save user data in Database
+            const sendUserData = await saveUser(user)
+            console.log(sendUserData)
         
 
              // get token
 
-             toast('Sign Up successfull')
+             toast.success('Sign Up successfull')
              navigate('/')
             
         } catch (error) {
@@ -47,9 +50,13 @@ const SignUp = () => {
     };
     const handleGoogleSignIn = async () => {
         try { 
-            const result = await signInWithGoogle()
+            const { user } = await signInWithGoogle()
+
+            // save user data in Database
+            const sendUserData = await saveUser(user)
+
             navigate(location?.state ? location.state : '/');
-            // Additional logic or redirection after Google sign-in
+             
         } catch (error) {
             toast.error(error.message);
             

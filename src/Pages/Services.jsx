@@ -12,7 +12,6 @@ import SwiperCard from './SwiperCard';
 
 const Services = () => {
     const [services, setServices] = useState([]);
-    console.log(services);
     useEffect(()=>{
         fetch('./services.json')
         .then((response) => response.json())

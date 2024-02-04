@@ -2,8 +2,7 @@ import React from 'react';
 import ani from '../../public/ani.json'
 
 const SwiperCard = ({cardinfo}) => {
-    const {img,heading,description} = cardinfo
-    console.log(cardinfo);
+    const {img,heading,description} = cardinfo;
     return (
         <div className="card w-96  text-black bg-white  shadow-xl ">
             <div className="card-body ">

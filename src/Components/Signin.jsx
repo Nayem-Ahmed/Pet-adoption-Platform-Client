@@ -5,10 +5,11 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProviders';
 import { toast } from 'react-toastify';
+import saveUser from '../Hooks/auth';
 
  
 const Signin = () => {
-    const{signIn,signInWithGoogle} = useContext(AuthContext)
+    const{user,signIn,signInWithGoogle} = useContext(AuthContext)
     const navigate = useNavigate()
     const {
         register,
@@ -25,7 +26,7 @@ const Signin = () => {
 
             // get token
 
-            toast('Signin successfull')
+            toast.success('Signin successfull')
             navigate(location?.state ? location.state : '/');
 
         } catch (error) {
@@ -35,9 +36,11 @@ const Signin = () => {
 
     const handleGoogleSignIn = async () => {
         try { 
-            const result = await signInWithGoogle()
+            const {user} = await signInWithGoogle()
+            // save user data in Database
+            const sendUserData = await saveUser(user)
+            console.log(sendUserData)
             navigate(location?.state ? location.state : '/');
-            // Additional logic or redirection after Google sign-in
         } catch (error) {
             toast.error(error.message);
         }
