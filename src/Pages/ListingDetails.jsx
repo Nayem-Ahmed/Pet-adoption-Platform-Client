@@ -4,6 +4,7 @@ import AdoptModal from '../Components/AdoptModal';
 
 const ListingDetails = () => {
     const petListing = useLoaderData();
+    
     const [isModalOpen, setModalOpen] = useState(false);
 
     const openModal = () => setModalOpen(true);
