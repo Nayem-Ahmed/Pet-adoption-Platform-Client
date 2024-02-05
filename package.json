@@ -22,6 +22,7 @@
     "react-lottie": "^1.2.4",
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.21.3",
+    "react-select": "^5.8.0",
     "react-spinners": "^0.13.8",
     "react-toastify": "^10.0.4",
     "swiper": "^11.0.5"

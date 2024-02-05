@@ -53,7 +53,7 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-lg bg-base-100 rounded-box w-52">
 
                         {user?.email ? <li className='mb-3 text-black font-semibold'>{user?.displayName}</li> : null}
-                        {/* <Link className='mb-3' to='/dashboard'><li className='font-semibold'>Dashboard</li></Link> */}
+                        <Link className='mb-3 text-black' to='/dashboard'><li className='font-semibold'>Dashboard</li></Link>
                         {user?.email ? <button onClick={logOut}
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
                             type="submit"

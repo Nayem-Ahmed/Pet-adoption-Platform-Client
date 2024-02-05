@@ -10,6 +10,9 @@ import Signin from "../Components/Signin";
 import SignUp from "../Components/SignUp";
 import Privetroute from "../Routes/Privateroute";
 import ListingDetails from "../Pages/ListingDetails";
+import Dashboard from "../LayOut/Dashboard";
+import MyAddedPet from "../Pages/Dashboard/MyAddedPet";
+import AddPet from "../Pages/Dashboard/AddPet";
 
 const router= createBrowserRouter([
     {
@@ -59,6 +62,25 @@ const router= createBrowserRouter([
                 
             }
         ]
+    },
+    {
+        path:'/dashboard',
+        element:<Dashboard></Dashboard>,
+        children:[
+            {
+                path:'/dashboard/addpet',
+                element:<AddPet></AddPet>,
+            },
+            {
+                path:'/dashboard/myaddedpets',
+                element:<MyAddedPet></MyAddedPet>,
+            },
+            {
+                path:'/dashboard/adoptionrequest',
+                element:<MyAddedPet></MyAddedPet>,
+            },
+        ]
     }
+
 ])
 export default router;
