@@ -1,21 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Select from 'react-select';
 import axiosPublic from '../../Hooks/axiosPublic';
 import { toast } from 'react-toastify';
 import { imgUpload } from '../../Hooks/imgbb';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 const AddPet = () => {
+    const {user} = useContext(AuthContext)
     const { register, handleSubmit,setValue,reset, formState: { errors } } = useForm();
     const onSubmit = async (data) => {
-        console.log(data);
+
         const imageData = await imgUpload(data.petImage[0]);
-        console.log(imageData);
 
         const updatedData = {
             ...data,
             adopted: false,  
-            petImage: imageData?.data?.url,   
+            petImage: imageData?.data?.url, 
+            email:user?.email,  
         };
 
         axiosPublic.post("/addpet", updatedData)

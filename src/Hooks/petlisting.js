@@ -11,3 +11,8 @@ export const postAdoption = async () => {
   const { data } = await axiosPublic.post('/adoption')
   return data
 }
+// get  addpet
+// export const getAddPet = async (email) => {
+//   const { data } = await axiosPublic(`/addpet/${email}`)
+//   return data
+// }

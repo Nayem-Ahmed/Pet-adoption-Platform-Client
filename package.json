@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.18.1",
+    "@tanstack/react-table": "^8.11.8",
     "aos": "^2.3.4",
     "axios": "^1.6.7",
     "firebase": "^10.7.2",
@@ -24,7 +26,9 @@
     "react-router-dom": "^6.21.3",
     "react-select": "^5.8.0",
     "react-spinners": "^0.13.8",
+    "react-table": "^7.8.0",
     "react-toastify": "^10.0.4",
+    "sweetalert2": "^11.10.5",
     "swiper": "^11.0.5"
   },
   "devDependencies": {
