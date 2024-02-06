@@ -10,10 +10,10 @@ const Contact = () => {
  
     return (
         <div className='my-9'>
-            <img className='w-full bg-black opacity-70' src={cont} alt="" />
+            <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.52)' }}><img  className='w-full bg-black opacity-70' src={cont} alt="" /></div>
             <h1 className='relative  md:bottom-56  font-bold text-5xl text-red-500 block text-center'>Contacts</h1>
             <div className='md:p-16' style={{ backgroundImage: `url(${map})` }}>
-                <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto py-5 bg-[#647788] p-10 ">
+                <form  onSubmit={handleSubmit(onSubmit)} style={{ backgroundColor: 'rgba(0, 0, 0, 0.52)' }} className="max-w-md mx-auto py-5 p-10 ">
                     <label className="block mb-4">
                         Name:
                         <input

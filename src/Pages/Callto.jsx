@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Callto = () => {
     return (
         <div>
-            <section className="bg-gradient-to-b from-gray-600 to-gray-700 text-white py-16">
+            <section className="bg-gradient-to-b from-gray-600 to-gray-700 p-4 text-white py-16">
                 <div className="container mx-auto text-center">
                     <h2 className="text-5xl font-extrabold mb-4 leading-tight">
                         Give a Loving Home to a Furry Friend
