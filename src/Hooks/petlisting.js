@@ -16,3 +16,10 @@ export const postAdoption = async () => {
 //   const { data } = await axiosPublic(`/addpet/${email}`)
 //   return data
 // }
+
+
+// get  all create donation campaign
+export const getCreatedonation = async () => {
+  const { data } = await axiosPublic(`/createdonation`)
+  return data
+}
