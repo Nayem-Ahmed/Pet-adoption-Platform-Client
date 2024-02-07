@@ -79,16 +79,11 @@ const Sidebar = () => {
                                         label='My added pets'
                                         address='/dashboard/myaddedpets'
                                     />
-                                <MenuItem
-                                    icon={IoGitPullRequest }
-                                    label='Adoption Request'
-                                    address='/dashboard/adoptionrequest'
-                                />
-                
+
                             <MenuItem
                                 icon={MdOutlineCampaign }
                                 label='Create Donation Campaign'
-                                address='/dashboard/mycarts'
+                                address='/dashboard/createdonationcampaign'
                             />
                         </nav> 
 
