@@ -20,6 +20,10 @@ const Donation = () => {
         fetchData();
 
     }, []);
+    const handleDonateNow = (donation) => {
+        console.log(donation);
+       
+    };
 
     return (
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 my-5 p-4'>
@@ -32,7 +36,8 @@ const Donation = () => {
                         <h2 className="card-title">{donation.shortDescription}</h2>
                         <p className='text-lg'>Donation amount : {donation.maxDonation}</p>
                         <div className="card-actions">
-                            <button className="btn text-white bg-[#341f97]">View Details</button>
+                            <button className="btn btn-sm text-white bg-[#341f97]">View Details</button>
+                            <button onClick={() => handleDonateNow(donation)} className="btn btn-sm text-white bg-[#341f97]">Donate Now</button>
                         </div>
                     </div>
                 </div>
