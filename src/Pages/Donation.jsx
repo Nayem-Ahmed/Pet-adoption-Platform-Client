@@ -36,7 +36,6 @@ const Donation = () => {
                         <h2 className="card-title">{donation.shortDescription}</h2>
                         <p className='text-lg'>Donation amount : {donation.maxDonation}</p>
                         <div className="card-actions">
-                            <button className="btn btn-sm text-white bg-[#341f97]">View Details</button>
                             <button onClick={() => handleDonateNow(donation)} className="btn btn-sm text-white bg-[#341f97]">Donate Now</button>
                         </div>
                     </div>
