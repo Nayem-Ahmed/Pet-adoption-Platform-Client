@@ -94,7 +94,7 @@ const Sidebar = () => {
                     <MenuItem
                         icon={CgProfile}
                         label='Profile'
-                        address='/dashboard/profile'
+                        address='/dashboard'
                     />
                     <Link to='/'>
                         <button

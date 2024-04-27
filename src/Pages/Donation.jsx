@@ -11,7 +11,7 @@ const Donation = () => {
                 setDonationData(donationData)
                 const initAOS = setTimeout(() => {
                     AOS.init();
-                  }, 100);
+                }, 100);
             } catch (error) {
                 console.error('Error fetching donation data:', error);
             }
@@ -22,27 +22,30 @@ const Donation = () => {
     }, []);
     const handleDonateNow = (donation) => {
         console.log(donation);
-       
+
     };
 
     return (
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 my-5 p-4'>
-        {
-            donationData?.map(donation => (
-                <div key={donation._id} className="card card-compact shadow-sm">
-                     <img data-aos="flip-left" className='h-52 w-52 border-4 border-indigo-600 rounded-full' src={donation.petPicture} alt=" " /> 
-                    <div className="card-body bg-gray-50">
-                        <h2 className="card-title">{donation.lastDonationDate}</h2>
-                        <h2 className="card-title">{donation.shortDescription}</h2>
-                        <p className='text-lg'>Donation amount : {donation.maxDonation}</p>
-                        <div className="card-actions">
-                            <button onClick={() => handleDonateNow(donation)} className="btn btn-sm text-white bg-[#341f97]">Donate Now</button>
+            {donationData?.length ? ( // Check if donationData array has items
+                donationData.map(donation => (
+                    <div key={donation._id} className="card card-compact shadow-sm">
+                        <img data-aos="flip-left" className='h-52 w-52 border-4 border-indigo-600 rounded-full' src={donation.petPicture} alt=" " />
+                        <div className="card-body bg-gray-50">
+                            <h2 className="card-title">{donation.lastDonationDate}</h2>
+                            <h2 className="card-title">{donation.shortDescription}</h2>
+                            <p className='text-lg'>Donation amount : {donation.maxDonation}</p>
+                            <div className="card-actions">
+                                <button onClick={() => handleDonateNow(donation)} className="btn btn-sm text-white bg-[#341f97]">Donate Now</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))
-        }
-    </div>
+                ))
+            ) : (
+                <p className='text-center text-xl'>No donation data available</p>
+            )}
+        </div>
+
     );
 };
 
