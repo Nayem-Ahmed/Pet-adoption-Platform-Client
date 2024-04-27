@@ -20,7 +20,7 @@ const AboutUs = () => {
                 </div>
             </div>
             <div className=' '>
-                <img className='w-96' src={doog} alt="" />
+                <img className='w-80' src={doog} alt="" />
             </div>
         </div>
     );
