@@ -14,6 +14,7 @@ import Dashboard from "../LayOut/Dashboard";
 import MyAddedPet from "../Pages/Dashboard/MyAddedPet";
 import AddPet from "../Pages/Dashboard/AddPet";
 import CreateDonationCampaign from "../Pages/Dashboard/CreateDonationCampaign";
+import Privateroute from "../Routes/Privateroute";
 
 const router= createBrowserRouter([
     {
@@ -39,7 +40,7 @@ const router= createBrowserRouter([
             {
                 path:"/listing/:id",
                 loader: ({ params }) => fetch(`https://pet-adoption-server-three.vercel.app/petlisting/${params.id}`),
-                element:  <ListingDetails></ListingDetails>,
+                element: <Privateroute> <ListingDetails></ListingDetails></Privateroute>,
                 
             },
             {

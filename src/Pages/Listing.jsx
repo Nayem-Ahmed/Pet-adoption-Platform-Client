@@ -119,8 +119,8 @@ const Listing = () => {
       </div>
       {visiblePets.length > 0 ? (
         visiblePets.map((listing) => (
-          <div data-aos="fade-right" key={listing._id} className="card card-compact bg-base-100 shadow-xl">
-            <figure><img className='w-full h-72' src={listing.image} alt="pet" /></figure>
+          <div data-aos="fade-right" key={listing._id} className="card card-compact bg-base-100 shadow-xl rounded-md">
+            <figure><img className='w-full h-72 object-cover' src={listing.image} alt="pet" /></figure>
             <div className="card-body">
               <h2 className="card-title">Pet Name : {listing.name}</h2>
               <h2 className="card-title">Pet age : 0{listing.age}</h2>

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaGoogle } from 'react-icons/fa';
 import { IoMdAttach, IoMdLock, IoMdMail, IoMdPerson } from 'react-icons/io';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProviders';
 import { imgUpload } from '../Hooks/imgbb';
 import { toast } from 'react-toastify';
@@ -11,6 +11,8 @@ import saveUser from '../Hooks/auth';
 const SignUp = () => {
     const {createUser,updateUserProfile,signInWithGoogle} = useContext(AuthContext)
     const navigate = useNavigate();
+    const location = useLocation();
+
     const {
         register,
         handleSubmit,
@@ -54,7 +56,7 @@ const SignUp = () => {
 
             // save user data in Database
             const sendUserData = await saveUser(user)
-
+            toast.success('Sign Up successfull')
             navigate(location?.state ? location.state : '/');
              
         } catch (error) {

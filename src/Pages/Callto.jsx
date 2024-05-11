@@ -13,7 +13,7 @@ const Callto = () => {
                         Discover the joy of pet adoption. Provide a home filled with love, warmth, and
                         companionship.
                     </p>
-                    <Link to='services'> <button className="bg-blue-500 text-white py-3 px-8 rounded-full text-lg hover:bg-blue-700 transition duration-300">
+                    <Link to='/listing'> <button className="bg-blue-500 text-white py-3 px-8 rounded-full text-lg hover:bg-blue-700 transition duration-300">
                         Adopt Now
                     </button></Link>
                 </div>

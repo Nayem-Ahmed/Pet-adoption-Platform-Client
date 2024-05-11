@@ -1,11 +1,4 @@
-
-html,
-body {
-  position: relative;
-  height: 100%;
-}
-
-
+ 
 .swiper {
   width: 100%;
   height: 100%;
@@ -17,10 +10,9 @@ body {
   color: #fff;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 140px 60px;
-}
+ }
 
-.parallax-bg {
+/* .parallax-bg {
   position: absolute;
   left: 0;
   top: 0;
@@ -29,7 +21,7 @@ body {
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center;
-}
+} */
 
 .swiper-slide .title {
   font-size: 41px;

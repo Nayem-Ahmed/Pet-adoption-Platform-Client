@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { IoMdMail,IoMdLock } from "react-icons/io";
 import { FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProviders';
 import { toast } from 'react-toastify';
 import saveUser from '../Hooks/auth';
@@ -10,7 +10,8 @@ import saveUser from '../Hooks/auth';
  
 const Signin = () => {
     const{user,signIn,signInWithGoogle} = useContext(AuthContext)
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
     const {
         register,
         handleSubmit,

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import dashimg from '../../assets/logodoog.png'
 
 
 // Icons
@@ -60,7 +61,7 @@ const Sidebar = () => {
                     <div>
                         <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-blue-100 mx-auto'>
                             {/* <Logo /> */}
-                            <img className='w-10' src={''} alt="" />Pet Adoption
+                            <img className='w-10' src={dashimg} alt="" />Pet Adoption
                         </div>
                     </div>
 

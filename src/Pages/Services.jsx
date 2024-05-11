@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
-import 'swiper/css';
+ 
 import 'swiper/css/pagination';
 
 // import required modules
@@ -20,9 +20,9 @@ const Services = () => {
     },[])
     return (
         <>
-        <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
+        <Swiper 
+         
+          spaceBetween={5}
           autoplay={{
             delay: 3000, 
             disableOnInteraction: false,
@@ -31,14 +31,35 @@ const Services = () => {
             clickable: true,
           }}
           modules={[Pagination,Autoplay]}
-          className="mySwiper "
+       
+          breakpoints={{
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+            },
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            1024: {
+                slidesPerView: 4,
+                spaceBetween: 40,
+            },
+        }}
           
         >
+          <div>
+
             {
-                services.map(slider=> <SwiperSlide key={slider.id} >
+                services.map(slider=> <SwiperSlide key={slider.id} className='p-5'>
                     <SwiperCard cardinfo={slider}></SwiperCard>
                     </SwiperSlide>)
             }
+          </div>
  
         </Swiper>
         
